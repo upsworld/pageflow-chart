@@ -1,0 +1,8 @@
+de:
+  pageflow:
+    chart:
+      page_type_name: "Diagramm"
+  activerecord:
+    attributes:
+      page:
+        scraped_site_id: "Diagramm URL"
