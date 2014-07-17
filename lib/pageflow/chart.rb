@@ -7,7 +7,7 @@ require 'pageflow/chart/engine'
 module Pageflow
   module Chart
     def self.config
-      @config ||= Configuration.new
+      @config ||= Chart::Configuration.new
     end
 
     def self.configure(&block)

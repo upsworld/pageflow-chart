@@ -18,6 +18,11 @@ module Pageflow
           transition 'unprocessed' => 'processing'
         end
 
+        event :reprocess do
+          transition 'processed' => 'processing'
+          transition 'processing_failed' => 'processing'
+        end
+
         job ScrapeSiteJob do
           on_enter 'processing'
           result ok: 'processed'

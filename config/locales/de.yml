@@ -4,5 +4,5 @@ de:
       page_type_name: "Diagramm"
   activerecord:
     attributes:
-      page:
+      pageflow/page:
         scraped_site_id: "Diagramm URL"

@@ -13,9 +13,11 @@ module Pageflow
       def perform(scraped_site)
         downloader.load(scraped_site.url) do |file|
           scraper = Scraper.new(file.read, Chart.config.scraper_options)
-          scraped_site.html_file = StringIOWithContentType.new(scraper.html,
-                                                               file_name: 'file.html',
-                                                               content_type: 'text/html')
+          scraped_site.html_file = StringIOWithContentType.new(
+            scraper.html,
+            file_name: 'file.html',
+            content_type: 'text/html'
+          )
 
           downloader.load_all(scraper.javascript_urls, extension: '.js', separator: "\n;") do |file|
             scraped_site.javascript_file = file
@@ -34,6 +36,7 @@ module Pageflow
       end
 
       def self.perform_with_result(scraped_site, options = {})
+        # This is were the downloader passed to `initialize` is created.
         new(Downloader.new(base_url: scraped_site.url)).perform(scraped_site)
       end
     end
