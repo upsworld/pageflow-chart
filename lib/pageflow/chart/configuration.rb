@@ -27,6 +27,11 @@ module Pageflow
       # @return [Hash]
       attr_accessor :paperclip_s3_default_options
 
+      # White list of URL prefixes (including protocol) of scraped
+      # sites.
+      # @return [Array<String>]
+      attr_reader :supported_hosts
+
       def initialize
         @scraper_options = {
           head_script_blacklist: [/piwik/],
@@ -36,6 +41,7 @@ module Pageflow
         @paperclip_s3_default_options = {}
         @paperclip_base_path = ':host'
         @scraped_sites_root_url = nil
+        @supported_hosts = ['http://cf.datawrapper.de']
       end
 
       # @api private

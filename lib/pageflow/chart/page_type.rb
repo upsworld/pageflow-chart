@@ -6,6 +6,10 @@ module Pageflow
       def view_helpers
         [ScrapedSitesHelper]
       end
+
+      def json_seed_template
+        'pageflow/chart/page_type.json.jbuilder'
+      end
     end
   end
 end
