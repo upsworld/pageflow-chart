@@ -13,5 +13,9 @@ module Pageflow
     def self.configure(&block)
       block.call(config)
     end
+
+    def self.page_type
+      Chart::PageType.new
+    end
   end
 end
